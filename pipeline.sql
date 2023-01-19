@@ -13,7 +13,7 @@ SELECT
 FROM county_daily_status
 
 @transform_pandas(
-    Output(rid="ri.vector.main.execute.13a5ce68-56df-4a08-90a1-baeedd167b74"),
+    Output(rid="ri.foundry.main.dataset.2e71c00e-d2d7-47da-a4a8-367d28eaadad"),
     BU_SC_SDOH_N3C_2018_20201130=Input(rid="ri.foundry.main.dataset.f9fb2781-bed3-421e-bb57-6eaa24ddd85d"),
     county_daily_status=Input(rid="ri.foundry.main.dataset.99814779-5924-4e29-8df1-5d80b4da5cf7")
 )

@@ -17,6 +17,7 @@ FROM county_daily_status
     BU_SC_SDOH_N3C_2018_20201130=Input(rid="ri.foundry.main.dataset.f9fb2781-bed3-421e-bb57-6eaa24ddd85d"),
     county_daily_status=Input(rid="ri.foundry.main.dataset.99814779-5924-4e29-8df1-5d80b4da5cf7")
 )
-SELECT *
-FROM county_daily_status
+SELECT a.*, b.CBSA_CODE, b.CBSA_Name
+FROM county_daily_status a LEFT JOIN BU_SC_SDOH_N3C_2018_20201130 b
+ON a.local_code = b.FIPS_CODE
 

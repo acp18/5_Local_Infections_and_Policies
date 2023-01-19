@@ -19,7 +19,7 @@ date_first_case <- function(county_daily_ma) {
     mutate(first_case_date_cbsa = min(date, na.rm = T))
     df2<-df1[,c("local_code","date","first_case_date_cbsa")]
     ##Merge back into full dataset
-    df5<-merge(county_daily_ma,df4,by=c("local_code","date"))
+    df5<-merge(df3,df4,by=c("local_code","date"))
 
     return(df5)
 }

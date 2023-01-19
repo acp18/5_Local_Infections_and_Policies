@@ -9,11 +9,18 @@ date_first_case <- function(county_daily_ma) {
     df<-subset(county_daily_ma,covid19_total_cases>0)
      df1<-df %>% 
     group_by(local_code) %>% 
-    mutate(first_case_date = min(date, na.rm = T))
-    df2<-df1[,c("local_code","date","first_case_date")]
+    mutate(first_case_date_county = min(date, na.rm = T))
+    df2<-df1[,c("local_code","date","first_case_date_county")]
     ##Merge back into full dataset
     df3<-merge(county_daily_ma,df2,by=c("local_code","date"))
 
-    return(df3)
+ df4<-df3 %>% 
+    group_by(CBSA_CODE) %>% 
+    mutate(first_case_date_cbsa = min(date, na.rm = T))
+    df2<-df1[,c("local_code","date","first_case_date_cbsa")]
+    ##Merge back into full dataset
+    df5<-merge(county_daily_ma,df4,by=c("local_code","date"))
+
+    return(df5)
 }
 

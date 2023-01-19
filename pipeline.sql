@@ -5,7 +5,7 @@
     county_daily_w_cbsa=Input(rid="ri.foundry.main.dataset.2e71c00e-d2d7-47da-a4a8-367d28eaadad")
 )
 SELECT
-   region_id,mapbox_geoid,state_name,state_abbr,date,local_code,covid19_total_cases,
+   region_id,mapbox_geoid,state_name,state_abbr,date,local_code,covid19_total_cases,CBSA_CODE,
    covid19_new_cases,
    AVG(covid19_new_cases)
          OVER(PARTITION BY local_code ORDER BY local_code, date  ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) 

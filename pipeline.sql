@@ -1,8 +1,8 @@
 
 
 @transform_pandas(
-    Output(rid="ri.vector.main.execute.df7b25fa-ace6-44c1-b8af-ae00c57f6c94"),
-    county_daily_status=Input(rid="ri.foundry.main.dataset.99814779-5924-4e29-8df1-5d80b4da5cf7")
+    Output(rid="ri.foundry.main.dataset.11d706f0-587c-40ed-a9da-601a12b3b4bd"),
+    county_daily_w_cbsa=Input(rid="ri.foundry.main.dataset.2e71c00e-d2d7-47da-a4a8-367d28eaadad")
 )
 SELECT
    region_id,mapbox_geoid,state_name,state_abbr,date,local_code,covid19_total_cases,
@@ -10,7 +10,7 @@ SELECT
    AVG(covid19_new_cases)
          OVER(PARTITION BY local_code ORDER BY local_code, date  ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) 
          AS moving_average
-FROM county_daily_status
+FROM county_daily_w_cbsa
 
 @transform_pandas(
     Output(rid="ri.foundry.main.dataset.2e71c00e-d2d7-47da-a4a8-367d28eaadad"),

@@ -17,7 +17,7 @@ date_first_case <- function(county_daily_ma) {
  df4<-df %>% 
     group_by(CBSA_CODE) %>% 
     mutate(first_case_date_cbsa = min(date, na.rm = T))
-    df5<-df1[,c("local_code","date","first_case_date_cbsa")]
+    df5<-df4[,c("local_code","date","first_case_date_cbsa")]
     ##Merge back into full dataset
     df6<-merge(df3,df5,by=c("local_code","date"))
 

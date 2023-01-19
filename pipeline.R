@@ -1,7 +1,8 @@
 
 
 @transform_pandas(
-    Output(rid="ri.vector.main.execute.f1fa590b-239c-483e-97ed-ab22856ea8ec")
+    Output(rid="ri.foundry.main.dataset.d6c21629-cde5-44bf-a8f0-680b67ea3085"),
+    county_daily_ma=Input(rid="ri.foundry.main.dataset.11d706f0-587c-40ed-a9da-601a12b3b4bd")
 )
 date_first_case <- function(county_daily_ma) {
     ##Subset dataset to only those counties with positive case counts and compute the minimum date per county

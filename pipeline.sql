@@ -25,6 +25,6 @@ ON a.local_code = b.FIPS_CODE
     Output(rid="ri.foundry.main.dataset.0487bd03-e1d9-47f3-be58-dfda80d883e1"),
     date_first_case=Input(rid="ri.foundry.main.dataset.27a0e619-0e4a-4dd8-b06f-6d7e763da771")
 )
-SELECT *, DATE_DIFF(day, date , first_case_date_county) as days_from_1st_case_county, DATEDIFF(day, date , first_case_date_cbsa) as days_from_1st_case_cbsa,
+SELECT *, DATE_DIFF(day, date , first_case_date_county) as days_from_1st_case_county, DATE_DIFF(day, date , first_case_date_cbsa) as days_from_1st_case_cbsa,
 FROM date_first_case
 

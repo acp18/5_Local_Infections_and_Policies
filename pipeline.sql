@@ -6,8 +6,8 @@
 )
 SELECT
    region_id,mapbox_geoid,state_name,state_abbr,date,local_code,covid19_total_cases,CBSA_CODE,
-   covid19_new_cases,
-   AVG(covid19_new_cases)
+   covid19_new_cases,drvd_new_cases,
+   AVG(drvd_new_cases)
          OVER(PARTITION BY local_code ORDER BY local_code, date  ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) 
          AS moving_average
 FROM county_daily_w_cbsa

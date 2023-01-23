@@ -21,3 +21,10 @@ SELECT a.*, b.CBSA_CODE, b.CBSA_Name
 FROM county_daily_status a LEFT JOIN BU_SC_SDOH_N3C_2018_20201130 b
 ON a.local_code = b.FIPS_CODE
 
+@transform_pandas(
+    Output(rid="ri.vector.main.execute.a9b02a67-e778-4b97-99ba-572fcb472077"),
+    date_first_case=Input(rid="ri.foundry.main.dataset.27a0e619-0e4a-4dd8-b06f-6d7e763da771")
+)
+SELECT *
+FROM date_first_case
+
